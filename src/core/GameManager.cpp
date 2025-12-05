@@ -28,6 +28,9 @@ void GameManager::run() {
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) {
                 window.close();
+            } else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
+                // Allow exiting the game immediately via ESC and return to main menu
+                window.close();
             } else if (event.type == sf::Event::Resized) {
                 // Update view to match window size
                 sf::FloatRect visibleArea(0.f, 0.f, static_cast<float>(event.size.width), static_cast<float>(event.size.height));
